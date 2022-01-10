@@ -7,10 +7,6 @@ let gameConfig = {
     height: 500,
     backgroundColor: '#000000',
     parent: 'game',
-    fps: {
-        target: 30,
-        //forceSetTimeOut: true
-    },
     physics: {
         default: 'arcade',
         arcade: {

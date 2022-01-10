@@ -15,9 +15,9 @@ class Tableau1 extends Phaser.Scene{
 
         this.height=500;
 
-        this.haut=this.add.tileSprite(0,0,'carre').setOrigin(0,0);
+        this.haut=this.add.tileSprite(0,0,this.width-20,this.height,'carre').setOrigin(0,0);
 ;
-        this.bas=this.add.tileSprite(20,150,'carre').setOrigin(0,0);
+        this.bas=this.add.tileSprite(20,150,this.width-20,this.height,'carre').setOrigin(0,0);
 
         this.balle=this.add.image(20,50,'cercle').setOrigin(0,0);
         this.balle.setDisplayOrigin(20,20);
