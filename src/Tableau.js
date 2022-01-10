@@ -59,11 +59,17 @@ class Tableau extends Phaser.Scene{
         this.physics.add.collider(this.balle, this.gauche);
         this.physics.add.collider(this.balle, this.droite);
 
-        this.physics.add.collider(this.gauche, this.haut);
-        this.physics.add.collider(this.gauche, this.bas);
+        //this.physics.add.collider(this.gauche, this.haut);
+        //this.physics.add.collider(this.gauche, this.bas);
 
-        this.physics.add.collider(this.droite, this.haut);
-        this.physics.add.collider(this.droite, this.bas);
+        //this.physics.add.collider(this.droite, this.haut);
+        //this.physics.add.collider(this.droite, this.bas);
+
+        /**
+         * Collider Raquette/Murs
+         */
+
+
 
         this.initKeyboard();
     }
