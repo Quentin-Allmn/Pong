@@ -20,12 +20,16 @@ class Tableau extends Phaser.Scene{
 
         this.balle=this.physics.add.sprite(this.width/2,this.height/2,'cercle').setOrigin(0,0);
         this.balle.setDisplaySize(20,20);
-        this.balle.body.setBounce(0.9,1);
+        this.balle.body.setBounce(1.1,1.1);
+        this.balle.setVelocityX(100);
 
         this.physics.add.collider(this.balle,this.bas);
         this.physics.add.collider(this.balle,this.haut);
     }
     update(){
+    if(this.balle.x > this.width) {
+        this.balle.x=0
+    };
 
     }
 }
