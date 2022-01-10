@@ -1,6 +1,3 @@
-class Tableau {
-}
-
 let gameConfig = {
     type: Phaser.AUTO,
     width: 1000,
@@ -10,7 +7,7 @@ let gameConfig = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 0 }
+            gravity: { y: 200 }
         }
     },
     scene: new Tableau()
