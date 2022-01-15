@@ -93,7 +93,7 @@ initKeyboard() {
         switch (kevent.keyCode) {
             // initialisation de la touche en appuis Q pour descendre la raquette gauche
             case Phaser.Input.Keyboard.KeyCodes.Q:
-                if (this.gauche.y >= 430) {
+                if (this.gauche.y+50 >= this.width-20) {
                     me.gauche.setVelocityY(0);
                 }
                 else {
@@ -111,7 +111,7 @@ initKeyboard() {
                 break;
             // initialisation de la touche en appuis M pour descendre la raquette Droite
             case Phaser.Input.Keyboard.KeyCodes.M:
-                if (this.gauche.y >= 430) {
+                if (this.gauche.y+50 >= this.width-20) {
                     me.droite.setVelocityY(0);
                 }
                 else {
