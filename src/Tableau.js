@@ -1,4 +1,3 @@
-
 class Tableau extends Phaser.Scene{
     preload(){
         this.load.image("cercle","assets/cercle.png")
