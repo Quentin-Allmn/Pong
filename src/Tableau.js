@@ -65,9 +65,6 @@ class Tableau extends Phaser.Scene{
         //this.physics.add.collider(this.droite, this.haut);
         //this.physics.add.collider(this.droite, this.bas);
 
-     
-
-
         this.initKeyboard();
     }
 
