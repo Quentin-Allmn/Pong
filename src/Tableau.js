@@ -65,10 +65,7 @@ class Tableau extends Phaser.Scene{
         //this.physics.add.collider(this.droite, this.haut);
         //this.physics.add.collider(this.droite, this.bas);
 
-        /**
-         * Collider Raquette/Murs
-         */
-
+     
 
 
         this.initKeyboard();
@@ -104,7 +101,12 @@ initKeyboard() {
                 break;
             // initialisation de la touche en appuis A pour Monter la raquette gauche
             case Phaser.Input.Keyboard.KeyCodes.A:
-                me.gauche.setVelocityY(-200)
+                if (this.gauche.y == 20) {
+                    me.gauche.setVelocityY(0);
+                }
+                else {
+                    me.gauche.setVelocityY(-200);
+                }
                 break;
             // initialisation de la touche en appuis M pour descendre la raquette Droite
             case Phaser.Input.Keyboard.KeyCodes.M:
