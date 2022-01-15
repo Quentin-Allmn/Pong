@@ -101,7 +101,7 @@ initKeyboard() {
                     me.gauche.setVelocityY(0);
                 }
                 else {
-                    me.gauche.setVelocityY(-200);
+                    me.gauche.setVelocityY(+200);
                 }
                 break;
             // initialisation de la touche en appuis A pour Monter la raquette gauche
@@ -119,7 +119,7 @@ initKeyboard() {
                     me.droite.setVelocityY(0);
                 }
                 else {
-                    me.droite.setVelocityY(-200);
+                    me.droite.setVelocityY(+200);
                 }
                 break;
             // initialisation de la touche en appuis P pour Monter la raquette Droite
