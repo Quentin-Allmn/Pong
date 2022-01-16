@@ -115,11 +115,11 @@ initKeyboard() {
 }
     update(){
     if(this.balle.x > this.width) {
-        this.balle.x=0
+        this.balle.x=this.width/2;
         this.scoreG += 1;
     }
     if(this.balle.x < 0) {
-        this.balle.x = this.width;
+        this.balle.x = this.width/2;
         this.scoreD += 1;
     }
     if(this.balle.y<0){
@@ -129,6 +129,5 @@ initKeyboard() {
     if(this.balle.y > this.height){
         this.balle.y = this.height
     }
-
     }
 }
