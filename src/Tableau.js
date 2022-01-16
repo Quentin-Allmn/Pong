@@ -96,19 +96,19 @@ initKeyboard() {
         switch (kevent.keyCode) {
             // initialisation de la touche en appuis Q pour descendre la raquette gauche
             case Phaser.Input.Keyboard.KeyCodes.Q:
-                me.gauche.setVelocityY(+200);
+                me.gauche.setVelocityY(+300);
                 break;
             // initialisation de la touche en appuis A pour Monter la raquette gauche
             case Phaser.Input.Keyboard.KeyCodes.A:
-                me.gauche.setVelocityY(-200);
+                me.gauche.setVelocityY(-300);
                 break;
             // initialisation de la touche en appuis M pour descendre la raquette Droite
             case Phaser.Input.Keyboard.KeyCodes.M:
-                me.droite.setVelocityY(+200);
+                me.droite.setVelocityY(+300);
                 break;
             // initialisation de la touche en appuis P pour Monter la raquette Droite
             case Phaser.Input.Keyboard.KeyCodes.P:
-                me.droite.setVelocityY(-200);
+                me.droite.setVelocityY(-300);
                 break;
         }
     })
