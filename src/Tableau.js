@@ -6,6 +6,9 @@ class Tableau extends Phaser.Scene{
     create() {
         this.width = 1000;
         this.height = 500;
+
+        this.scoreG = 0;
+        this.scoreD = 0;
         /**
          * Mur Haut
          * @type {Phaser.Physics.Arcade.Sprite & {body: Phaser.Physics.Arcade.Body}}
@@ -93,39 +96,19 @@ initKeyboard() {
         switch (kevent.keyCode) {
             // initialisation de la touche en appuis Q pour descendre la raquette gauche
             case Phaser.Input.Keyboard.KeyCodes.Q:
-                if (this.gauche.y+50 >= this.width-20) {
-                    me.gauche.setVelocityY(0);
-                }
-                else {
-                    me.gauche.setVelocityY(+200);
-                }
+                me.gauche.setVelocityY(+200);
                 break;
             // initialisation de la touche en appuis A pour Monter la raquette gauche
             case Phaser.Input.Keyboard.KeyCodes.A:
-                if (this.gauche.y <= 70) {
-                    me.gauche.setVelocityY(0);
-                }
-                else {
-                    me.gauche.setVelocityY(-200);
-                }
+                me.gauche.setVelocityY(-200);
                 break;
             // initialisation de la touche en appuis M pour descendre la raquette Droite
             case Phaser.Input.Keyboard.KeyCodes.M:
-                if (this.gauche.y+50 >= this.width-20) {
-                    me.droite.setVelocityY(0);
-                }
-                else {
-                    me.droite.setVelocityY(+200);
-                }
+                me.droite.setVelocityY(+200);
                 break;
             // initialisation de la touche en appuis P pour Monter la raquette Droite
             case Phaser.Input.Keyboard.KeyCodes.P:
-                if (this.gauche.y <= 70) {
-                    me.droite.setVelocityY(0);
-                }
-                else {
-                    me.droite.setVelocityY(-200);
-                }
+                me.droite.setVelocityY(-200);
                 break;
         }
     })
@@ -133,6 +116,11 @@ initKeyboard() {
     update(){
     if(this.balle.x > this.width) {
         this.balle.x=0
+        this.scoreG += 1;
+    }
+    if(this.balle.x < 0) {
+        this.balle.x = this.width;
+        this.scoreD += 1;
     }
     if(this.balle.y<0){
         this.balle.y=0
