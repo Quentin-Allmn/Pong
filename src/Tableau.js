@@ -89,44 +89,42 @@ initKeyboard() {
                 break;
         }
     })
-    this.input.keyboard.on('keydown', function(kevent) {
+    this.input.keyboard.on('keydown', function (kevent) {
         switch (kevent.keyCode) {
-            // initialisation de la touche en appuis Q pour descendre la raquette gauche
-            case Phaser.Input.Keyboard.KeyCodes.Q:
-                if (this.gauche.y+50 >= this.width-20) {
-                    me.gauche.setVelocityY(0);
-                }
-                else {
-                    me.gauche.setVelocityY(+200);
-                }
-                break;
-            // initialisation de la touche en appuis A pour Monter la raquette gauche
             case Phaser.Input.Keyboard.KeyCodes.A:
-                if (this.gauche.y <= 70) {
-                    me.gauche.setVelocityY(0);
+                if(me.droite.y < me.haut.y+20){
+                    me.droite.setVelocityY(0)
                 }
-                else {
-                    me.gauche.setVelocityY(-200);
+                else{
+                me.droite.setVelocityY(-200)
+            }
+                break;
+
+            case Phaser.Input.Keyboard.KeyCodes.Q:
+                if(me.droite.y > me.bas.y-100){
+                    me.droite.setVelocityY(0)
+                }else {
+                    me.droite.setVelocityY(200)
                 }
                 break;
-            // initialisation de la touche en appuis M pour descendre la raquette Droite
-            case Phaser.Input.Keyboard.KeyCodes.M:
-                if (this.gauche.y+50 >= this.width-20) {
-                    me.droite.setVelocityY(0);
-                }
-                else {
-                    me.droite.setVelocityY(+200);
-                }
-                break;
-            // initialisation de la touche en appuis P pour Monter la raquette Droite
+
             case Phaser.Input.Keyboard.KeyCodes.P:
-                if (this.gauche.y <= 70) {
-                    me.droite.setVelocityY(0);
+                if(me.gauche.y < me.haut.y+20){
+                    me.gauche.setVelocityY(0)
                 }
-                else {
-                    me.droite.setVelocityY(-200);
+                else{
+                    me.gauche.setVelocityY(-200)
                 }
                 break;
+
+            case Phaser.Input.Keyboard.KeyCodes.M:
+                if(me.gauche.y > me.bas.y-100){
+                    me.gauche.setVelocityY(0)
+                }else {
+                    me.gauche.setVelocityY(200)
+                }
+         
+               break;
         }
     })
 }
