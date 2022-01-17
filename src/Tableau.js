@@ -48,50 +48,50 @@ class Tableau extends Phaser.Scene{
         this.balle.setDisplaySize(20, 20);
         this.balle.body.setBounce(1.1, 1.1);
         this.balle.setVelocityX(Phaser.Math.Between(200, -200));
-        this.balle.setVelocityY(Phaser.Math.Between(200, -200));
+        this.balle.setVelocityY(Phaser.Math.Between(0,0));
         this.balle.setMaxVelocity(500);
         /**
          * Physics
          */
         this.physics.add.collider(this.balle, this.bas);
         this.physics.add.collider(this.balle, this.haut);
+
         this.physics.add.collider(this.balle, this.gauche);
-        this.physics.add.collider(this.balle, this.droite);
-
-        //this.physics.add.collider(this.gauche, this.haut);
-        //this.physics.add.collider(this.gauche, this.bas);
-
-        //this.physics.add.collider(this.droite, this.haut);
-        //this.physics.add.collider(this.droite, this.bas);
+        this.physics.add.collider(this.balle, this.droite, function(){
+            console.log("touche droit")
+        });
 
         this.initKeyboard();
     }
+rebond(){
+
+}
 
 initKeyboard() {
     let me=this;
     this.input.keyboard.on('keyup', function(kevent) {
         switch (kevent.keyCode) {
-            // initialisation de la touche en appuis Q pour descendre la raquette gauche
-            case Phaser.Input.Keyboard.KeyCodes.Q:
+            // initialisation de la touche en appuis X pour descendre la raquette gauche
+            case Phaser.Input.Keyboard.KeyCodes.X:
                me.gauche.setVelocityY(0)
                 break;
-            // initialisation de la touche en appuis A pour Monter la raquette gauche
-            case Phaser.Input.Keyboard.KeyCodes.A:
+            // initialisation de la touche en appuis S pour Monter la raquette gauche
+            case Phaser.Input.Keyboard.KeyCodes.S:
                 me.gauche.setVelocityY(0)
                 break;
-            // initialisation de la touche en appuis M pour descendre la raquette Droite
-            case Phaser.Input.Keyboard.KeyCodes.M:
+            // initialisation de la touche en appuis N pour descendre la raquette Droite
+            case Phaser.Input.Keyboard.KeyCodes.N:
                 me.droite.setVelocityY(0)
                 break;
-            // initialisation de la touche en appuis P pour Monter la raquette Droite
-            case Phaser.Input.Keyboard.KeyCodes.P:
+            // initialisation de la touche en appuis J pour Monter la raquette Droite
+            case Phaser.Input.Keyboard.KeyCodes.J:
                 me.droite.setVelocityY(0)
                 break;
         }
     })
     this.input.keyboard.on('keydown', function (kevent) {
         switch (kevent.keyCode) {
-            case Phaser.Input.Keyboard.KeyCodes.A:
+            case Phaser.Input.Keyboard.KeyCodes.J:
                 if(me.droite.y < me.haut.y+20){
                     me.droite.setVelocityY(0)
                 }
@@ -100,7 +100,7 @@ initKeyboard() {
             }
                 break;
 
-            case Phaser.Input.Keyboard.KeyCodes.Q:
+            case Phaser.Input.Keyboard.KeyCodes.N:
                 if(me.droite.y > me.bas.y-100){
                     me.droite.setVelocityY(0)
                 }else {
@@ -108,7 +108,7 @@ initKeyboard() {
                 }
                 break;
 
-            case Phaser.Input.Keyboard.KeyCodes.P:
+            case Phaser.Input.Keyboard.KeyCodes.S:
                 if(me.gauche.y < me.haut.y+20){
                     me.gauche.setVelocityY(0)
                 }
@@ -117,7 +117,7 @@ initKeyboard() {
                 }
                 break;
 
-            case Phaser.Input.Keyboard.KeyCodes.M:
+            case Phaser.Input.Keyboard.KeyCodes.X:
                 if(me.gauche.y > me.bas.y-100){
                     me.gauche.setVelocityY(0)
                 }else {
@@ -130,8 +130,13 @@ initKeyboard() {
 }
     update(){
     if(this.balle.x > this.width) {
-        this.balle.x=0
+        this.balle.x=this.width/2
     }
+
+    if(this.balle.x ==0 ) {
+        this.balle.x=this.width/2
+    }
+
     if(this.balle.y<0){
         this.balle.y=0
     }
