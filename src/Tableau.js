@@ -1,5 +1,6 @@
 class Tableau extends Phaser.Scene{
     preload(){
+
         this.load.image("cercle","assets/cercle.png")
         this.load.image("carre","assets/carre.png")
     }
@@ -47,25 +48,46 @@ class Tableau extends Phaser.Scene{
         this.balle = this.physics.add.sprite(this.width / 2, this.height / 2, 'cercle').setOrigin(0, 0);
         this.balle.setDisplaySize(20, 20);
         this.balle.body.setBounce(1.1, 1.1);
-        this.balle.setVelocityX(Phaser.Math.Between(200, -200));
-        this.balle.setVelocityY(Phaser.Math.Between(0,0));
+        this.balle.setVelocityX(450);
+        this.balle.setVelocityY(Phaser.Math.Between(350,450));
         this.balle.setMaxVelocity(500);
         /**
          * Physics
          */
+        let me=this;
+
         this.physics.add.collider(this.balle, this.bas);
         this.physics.add.collider(this.balle, this.haut);
 
         this.physics.add.collider(this.balle, this.gauche);
         this.physics.add.collider(this.balle, this.droite, function(){
             console.log("touche droit")
+            me.rebond(me.droite);
         });
 
         this.initKeyboard();
     }
-rebond(){
 
-}
+    rebond(raquette){
+
+        let me=this;
+
+        console.log(raquette.y)
+        console.log(me.balle.y)
+        console.log((me.balle.y)-(raquette.y))
+
+        let hauteurRaquette = raquette.displayHeight;
+
+        let positionRelativeRaquette =(this.balle.y-raquette.y);
+
+        positionRelativeRaquette = (positionRelativeRaquette/hauteurRaquette);
+
+        positionRelativeRaquette = (positionRelativeRaquette*2-1);
+        console.log(positionRelativeRaquette);
+
+        this.balle.setVelocityY( this.balle.body.velocity.y + positionRelativeRaquette * hauteurRaquette)
+
+    }
 
 initKeyboard() {
     let me=this;
@@ -96,7 +118,7 @@ initKeyboard() {
                     me.droite.setVelocityY(0)
                 }
                 else{
-                me.droite.setVelocityY(-200)
+                me.droite.setVelocityY(-300)
             }
                 break;
 
@@ -104,7 +126,7 @@ initKeyboard() {
                 if(me.droite.y > me.bas.y-100){
                     me.droite.setVelocityY(0)
                 }else {
-                    me.droite.setVelocityY(200)
+                    me.droite.setVelocityY(300)
                 }
                 break;
 
@@ -113,7 +135,7 @@ initKeyboard() {
                     me.gauche.setVelocityY(0)
                 }
                 else{
-                    me.gauche.setVelocityY(-200)
+                    me.gauche.setVelocityY(-300)
                 }
                 break;
 
@@ -121,7 +143,7 @@ initKeyboard() {
                 if(me.gauche.y > me.bas.y-100){
                     me.gauche.setVelocityY(0)
                 }else {
-                    me.gauche.setVelocityY(200)
+                    me.gauche.setVelocityY(300)
                 }
          
                break;
@@ -133,9 +155,6 @@ initKeyboard() {
         this.balle.x=this.width/2
     }
 
-    if(this.balle.x ==0 ) {
-        this.balle.x=this.width/2
-    }
 
     if(this.balle.y<0){
         this.balle.y=0

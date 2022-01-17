@@ -3,7 +3,7 @@ body{
     flex-wrap : wrap;
     justify-content : space-around;
     font-family: "Trebuchet MS", Verdana, Geneva, Arial;
-    background-color: #ffffff;
+    background-color: #A1A1A1;
 }
 #game {
     flex-basis :70%;
