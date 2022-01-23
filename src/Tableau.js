@@ -89,6 +89,26 @@ class Tableau extends Phaser.Scene{
 
     }
 
+    balleAucentre(){
+        this.balle.x = this.largeur/2
+        this.balle.y = this.hauteur/2
+        this.speedX = 0
+
+        this.balle.setVelocityX(Math.random()>0.5?-100:100)
+        this.balle.setVelocityY(0)
+    }
+
+    /**
+     *
+     * @param {Joueur} joueur
+     */
+    win(joueur){
+        //alert('Joueur '+joueur.name+' gagne')
+        joueur.score ++;
+        //alert('Le score est de '+this.joueurGauche.score+' a '+this.joueurDroite.score)
+        this.balleAucentre();
+    }
+
 initKeyboard() {
     let me=this;
     this.input.keyboard.on('keyup', function(kevent) {
