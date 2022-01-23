@@ -73,7 +73,7 @@ class Tableau extends Phaser.Scene {
 
         }
 
-        if(this.balle>this.largeur)
+        if(this.balle>this.width)
         {
             this.scoreplayer1  +=1;
             this.textplayer2.setText('Player 2 = ' + this.scoreplayer2);
@@ -84,7 +84,7 @@ class Tableau extends Phaser.Scene {
         console.log(this.joueurGauche)
 
         this.balleAucentre();
-        this.initKeyboard()
+        this.initKeyboard();
     }
 
     rebond(raquette) {
@@ -108,8 +108,8 @@ class Tableau extends Phaser.Scene {
     }
 
     balleAucentre() {
-        this.balle.x = this.largeur / 2
-        this.balle.y = this.hauteur / 2
+        this.balle.x = this.width / 2
+        this.balle.y = this.height / 2
         this.speedX = 0
 
         this.balle.setVelocityX(Math.random() > 0.5 ? -100 : 100)
@@ -183,7 +183,7 @@ class Tableau extends Phaser.Scene {
         if (this.droite.y > this.bas.y - 100) {
             this.droite.y = this.bas.y - 100
         }
-        if (this.balle.x > this.largeur) {
+        if (this.balle.x > this.width) {
             this.win(this.joueurGauche);
         }
         if (this.balle.x < 0) {
