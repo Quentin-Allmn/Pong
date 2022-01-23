@@ -190,7 +190,5 @@ class Tableau extends Phaser.Scene {
         if (this.balle.x < 0) {
             this.win(this.joueurDroite);
         }
-        this.player1.y += this.player1Speed
-        this.player2.y += this.player2Speed
     }
 }
