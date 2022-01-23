@@ -66,7 +66,26 @@ class Tableau extends Phaser.Scene {
             me.rebond(me.droite);
         });
 
-        this.initKeyboard();
+        if(this.balle<0)
+        {
+            this.scoreplayer2 +=1;
+            this.textplayer1.setText('Player 1 = ' + this.scoreplayer1);
+
+        }
+
+        if(this.balle>this.largeur)
+        {
+            this.scoreplayer1  +=1;
+            this.textplayer2.setText('Player 2 = ' + this.scoreplayer2);
+        }
+
+
+        this.joueurGauche = new Joueur('Robert','joueurGauche')
+        this.joueurDroite = new Joueur('Jean marie','joueurDroite')
+        console.log(this.joueurGauche)
+
+        this.balleAucentre();
+        this.initKeyboard()
     }
 
     rebond(raquette) {
@@ -87,7 +106,6 @@ class Tableau extends Phaser.Scene {
         console.log(positionRelativeRaquette);
 
         this.balle.setVelocityY(this.balle.body.velocity.y + positionRelativeRaquette * hauteurRaquette)
-
     }
 
     balleAucentre() {
@@ -135,36 +153,19 @@ class Tableau extends Phaser.Scene {
         this.input.keyboard.on('keydown', function (kevent) {
             switch (kevent.keyCode) {
                 case Phaser.Input.Keyboard.KeyCodes.J:
-                    if (me.droite.y < me.haut.y + 20) {
-                        me.droite.setVelocityY(0)
-                    } else {
                         me.droite.setVelocityY(-300)
-                    }
                     break;
 
                 case Phaser.Input.Keyboard.KeyCodes.N:
-                    if (me.droite.y > me.bas.y - 100) {
-                        me.droite.setVelocityY(0)
-                    } else {
                         me.droite.setVelocityY(300)
-                    }
                     break;
 
                 case Phaser.Input.Keyboard.KeyCodes.S:
-                    if (me.gauche.y < me.haut.y + 20) {
-                        me.gauche.setVelocityY(0)
-                    } else {
                         me.gauche.setVelocityY(-300)
-                    }
                     break;
 
                 case Phaser.Input.Keyboard.KeyCodes.X:
-                    if (me.gauche.y > me.bas.y - 100) {
-                        me.gauche.setVelocityY(0)
-                    } else {
                         me.gauche.setVelocityY(300)
-                    }
-
                     break;
             }
         })
