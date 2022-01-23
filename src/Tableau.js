@@ -79,7 +79,6 @@ class Tableau extends Phaser.Scene {
             this.textplayer2.setText('Player 2 = ' + this.scoreplayer2);
         }
 
-
         this.joueurGauche = new Joueur('Robert','joueurGauche')
         this.joueurDroite = new Joueur('Jean marie','joueurDroite')
         console.log(this.joueurGauche)
