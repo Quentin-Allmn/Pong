@@ -1,8 +1,10 @@
 class Tableau extends Phaser.Scene {
     preload() {
 
+        this.load.image("carre3", "assets/carre3.png")
         this.load.image("cercle", "assets/cercle.png")
-        this.load.image("carre", "assets/carre.png")
+        this.load.image("carre1", "assets/carre1.png")
+        this.load.image("carre2", "assets/carre2.png")
     }
 
     create() {
@@ -12,7 +14,7 @@ class Tableau extends Phaser.Scene {
          * Mur Haut
          * @type {Phaser.Physics.Arcade.Sprite & {body: Phaser.Physics.Arcade.Body}}
          */
-        this.haut = this.physics.add.sprite(0, 0, 'carre').setOrigin(0, 0);
+        this.haut = this.physics.add.sprite(0, 0, 'carre3').setOrigin(0, 0);
         this.haut.setDisplaySize(this.width, 20);
         this.haut.body.setAllowGravity(false);
         this.haut.setImmovable(true);
@@ -20,7 +22,7 @@ class Tableau extends Phaser.Scene {
          * Mur Bas
          * @type {Phaser.Physics.Arcade.Sprite & {body: Phaser.Physics.Arcade.Body}}
          */
-        this.bas = this.physics.add.sprite(0, this.height - 20, 'carre').setOrigin(0, 0);
+        this.bas = this.physics.add.sprite(0, this.height - 20, 'carre3').setOrigin(0, 0);
         this.bas.setDisplaySize(this.width, 20);
         this.bas.body.setAllowGravity(false);
         this.bas.setImmovable(true);
@@ -28,7 +30,7 @@ class Tableau extends Phaser.Scene {
          * Raquette Gauche
          * @type {Phaser.Physics.Arcade.Sprite & {body: Phaser.Physics.Arcade.Body}}
          */
-        this.gauche = this.physics.add.sprite(40, 200, 'carre').setOrigin(0, 0);
+        this.gauche = this.physics.add.sprite(40, 200, 'carre1').setOrigin(0, 0);
         this.gauche.setDisplaySize(20, 100);
         this.gauche.body.setAllowGravity(false);
         this.gauche.setImmovable(true);
@@ -37,7 +39,7 @@ class Tableau extends Phaser.Scene {
          * Raquette Droite
          * @type {Phaser.Physics.Arcade.Sprite & {body: Phaser.Physics.Arcade.Body}}
          */
-        this.droite = this.physics.add.sprite(this.width - 40, 200, 'carre').setOrigin(0, 0);
+        this.droite = this.physics.add.sprite(this.width - 40, 200, 'carre2').setOrigin(0, 0);
         this.droite.setDisplaySize(20, 100);
         this.droite.body.setAllowGravity(false);
         this.droite.setImmovable(true);
