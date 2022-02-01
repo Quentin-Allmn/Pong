@@ -5,7 +5,7 @@ class Tableau extends Phaser.Scene {
         this.load.image("cercle", "assets/cercle.png")
         this.load.image("carre1", "assets/carre1.png")
         this.load.image("carre2", "assets/carre2.png")
-        
+
     }
 
     create() {
